@@ -1,12 +1,19 @@
 import React from 'react';
 
-import Container from './components/Container';
+// import Container from './components/Container';
+// import Person from './components/Person';
+import User from './components/User';
 
 function App() {
+	const showMessage = () => console.log('selam1');
+
 	return (
 		<div>
-			<h1>App Component</h1>
-			<Container />
+			{/* <h1>App Component</h1> */}
+			{/* <Container /> */}
+			{/* <Person /> */}
+
+			<User name="Mehmet" surname="Vural" age={28} showMessage={showMessage} />
 		</div>
 	);
 }
