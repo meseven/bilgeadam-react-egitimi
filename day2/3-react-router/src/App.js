@@ -1,7 +1,13 @@
 import React from "react";
 import "./App.css";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+	BrowserRouter as Router,
+	Switch,
+	Route,
+	Link,
+	Redirect,
+} from "react-router-dom";
 
 // pages
 import Home from "./components/Home";
@@ -11,6 +17,8 @@ import UserDetail from "./components/UserDetail";
 import NoMatch from "./components/NoMatch";
 
 function App() {
+	const loggedIn = false;
+
 	return (
 		<Router>
 			<div>
@@ -30,7 +38,9 @@ function App() {
 
 				<Switch>
 					<Route path="/" exact component={Home} />
-					<Route path="/about" component={About} />
+					<Route path="/about">
+						{loggedIn ? <Redirect to="/users" /> : <About />}
+					</Route>
 					<Route path="/users" exact component={Users} />
 					<Route path="/users/:id" component={UserDetail} />
 					<Route path="*">

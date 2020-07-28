@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { useParams } from "react-router-dom";
+import { useParams, Redirect } from "react-router-dom";
 
 function UserDetail() {
 	const { id } = useParams();
@@ -15,6 +15,10 @@ function UserDetail() {
 			.catch((e) => console.log(e))
 			.finally(() => setLoading(false));
 	}, [id]);
+
+	// setTimeout(() => {
+	// 	return <Redirect push to="/" />;
+	// }, 300);
 
 	return (
 		<div>
