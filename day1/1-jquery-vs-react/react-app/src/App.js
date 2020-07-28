@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 
 // import Container from './components/Container';
 // import Person from './components/Person';
 // import User from './components/User';
 // import Counter from './components/Counter';
 
-// import Form from './components/Form';
+import Form from "./components/Form";
 
-import FormUsers from './components/FormUsers';
+import FormUsers from "./components/FormUsers";
 
 function App() {
 	return (
@@ -17,7 +17,7 @@ function App() {
 			{/* <Person /> */}
 			{/* <User name="Mehmet" surname="Vural" age={28} showMessage={showMessage} /> */}
 			{/* <Counter startWith={10} /> */}
-			{/* <Form /> */}
+			<Form />
 
 			<FormUsers />
 		</div>
