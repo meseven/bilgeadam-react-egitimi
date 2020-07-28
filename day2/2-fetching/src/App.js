@@ -6,7 +6,7 @@ import UsersAxios from "./components/UsersAxios";
 
 function App() {
 	return (
-		<div>
+		<div className="App">
 			{/* <UsersFetch /> */}
 			<UsersAxios />
 		</div>
