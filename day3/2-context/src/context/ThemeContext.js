@@ -3,7 +3,9 @@ import React, { createContext, useState } from "react";
 const ThemeContext = createContext(null);
 
 export const ThemeProvider = ({ children }) => {
-	const [theme, setTheme] = useState("light");
+	const defaultTheme = localStorage.getItem("theme");
+
+	const [theme, setTheme] = useState(!defaultTheme ? "light" : defaultTheme);
 
 	const values = {
 		theme,

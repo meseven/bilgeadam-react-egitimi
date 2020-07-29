@@ -12,7 +12,9 @@ function ChangeBtn() {
 	};
 
 	const changeTheme = () => {
-		setTheme(theme === "dark" ? "light" : "dark");
+		const data = theme === "dark" ? "light" : "dark";
+		setTheme(data);
+		localStorage.setItem("theme", data);
 	};
 
 	return (
