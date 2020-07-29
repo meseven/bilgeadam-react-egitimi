@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+
+import { UserProvider } from "./context/UserContext";
+import { ThemeProvider } from "./context/ThemeContext";
+
+import Container from "./components/Container";
+import ComponentA from "./components/ComponentA";
+import ComponentB from "./components/ComponentB";
+import ChangeBtn from "./components/ChangeBtn";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<ThemeProvider>
+			<UserProvider>
+				<Container>
+					<ComponentA />
+
+					<hr />
+					<ComponentB />
+
+					<br />
+					<br />
+
+					<ChangeBtn />
+				</Container>
+			</UserProvider>
+		</ThemeProvider>
+	);
 }
 
 export default App;
