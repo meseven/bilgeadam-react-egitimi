@@ -11,7 +11,7 @@ function Content() {
 					type="checkbox"
 					checked="[todoLeft = 0]"
 				/>
-				<label for="toggle-all" mv-action="set(done, !toggleAll)">
+				<label htmlFor="toggle-all" mv-action="set(done, !toggleAll)">
 					Mark all as complete
 				</label>
 
