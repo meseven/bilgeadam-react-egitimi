@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 
+import TodoContext from "../../context/TodoContext";
 import validations from "./validations";
-
 import { Formik } from "formik";
+import { v4 as uuidv4 } from "uuid";
 
 function Form() {
+	const { todos, setTodos } = useContext(TodoContext);
+
 	const onSubmit = (values, bag) => {
-		console.log(values);
+		const data = {
+			...values,
+			completed: false,
+			id: uuidv4(),
+		};
+
+		setTodos([data, ...todos]);
+
 		bag.setSubmitting(false);
+		bag.resetForm();
 	};
 
 	return (
@@ -30,25 +41,21 @@ function Form() {
 					isSubmitting,
 					setFieldValue,
 				}) => (
-					<div style={{ padding: 10 }}>
-						<div>
-							<form onSubmit={handleSubmit}>
-								<input
-									onChange={handleChange("text")}
-									name="text"
-									className="new-todo"
-									value={values.text}
-									placeholder="What needs to be done?"
-									onBlur={() => setFieldTouched("text")}
-									autoFocus
-								/>
+					<form onSubmit={handleSubmit}>
+						<input
+							onChange={handleChange("text")}
+							name="text"
+							className="new-todo"
+							value={values.text}
+							placeholder="What needs to be done?"
+							onBlur={() => setFieldTouched("text")}
+							autoFocus
+						/>
 
-								{errors.text && touched.text && (
-									<div style={{ color: "red" }}>{errors.text}</div>
-								)}
-							</form>
-						</div>
-					</div>
+						{errors.text && touched.text && (
+							<div style={{ color: "red" }}>{errors.text}</div>
+						)}
+					</form>
 				)}
 			</Formik>
 		</>

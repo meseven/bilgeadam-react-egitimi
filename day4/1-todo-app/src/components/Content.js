@@ -1,9 +1,12 @@
 import React from "react";
 
+import TodoList from "./TodoList";
+import ContentFooter from "./ContentFooter";
+
 function Content() {
 	return (
 		<>
-			<section hidden="[count(todo) = 0]" className="main">
+			<section className="main">
 				<input
 					property="toggleAll"
 					id="toggle-all"
@@ -15,55 +18,10 @@ function Content() {
 					Mark all as complete
 				</label>
 
-				<ul className="todo-list">
-					<li mv-multiple="todo" className="[if(done, 'completed')]">
-						<div className="view">
-							<input property="done" className="toggle" type="checkbox" />
-							<label property="text">Taste JavaScript</label>
-							<button className="destroy" mv-action="delete(todo)"></button>
-						</div>
-					</li>
-				</ul>
+				<TodoList />
 			</section>
 
-			<footer hidden="[count(todo) = 0]" className="footer">
-				<meta property="todoDone" content="22" />
-				<meta property="todoLeft" content="[count(todo where !done)]" />
-
-				<span className="todo-count">
-					<strong mv-value="todoLeft">0</strong>
-					[if(todoLeft = 1, 'item', 'items')] left
-				</span>
-
-				<meta property="activeFilter" content="all" mv-storage="none" />
-				<ul className="filters">
-					<li>
-						<a href="#" className="[if(activeFilter = 'all', 'selected')]">
-							All
-						</a>
-					</li>
-					<li>
-						<a href="#" className="[if(activeFilter = 'active', 'selected')]">
-							Active
-						</a>
-					</li>
-					<li>
-						<a
-							href="#"
-							className="[if(activeFilter = 'completed', 'selected')]"
-						>
-							Completed
-						</a>
-					</li>
-				</ul>
-				<button
-					hidden="[todoDone = 0]"
-					className="clear-completed"
-					mv-action="delete(todo where done)"
-				>
-					Clear completed
-				</button>
-			</footer>
+			<ContentFooter />
 		</>
 	);
 }
