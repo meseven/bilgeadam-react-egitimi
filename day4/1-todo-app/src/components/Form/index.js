@@ -49,7 +49,6 @@ function Form() {
 							value={values.text}
 							placeholder="What needs to be done?"
 							onBlur={() => setFieldTouched("text")}
-							autoFocus
 						/>
 
 						{errors.text && touched.text && (

@@ -3,11 +3,9 @@ import React, { useContext } from "react";
 import TodoContext from "../context/TodoContext";
 
 function ContentFooter() {
-	const { todos } = useContext(TodoContext);
+	const { todos, activeFilter, setActiveFilter } = useContext(TodoContext);
 
 	const todoLeft = todos.filter((todo) => !todo.completed);
-
-	console.log(todoLeft.length);
 
 	return (
 		<footer hidden={todos.length === 0} className="footer">
@@ -22,17 +20,29 @@ function ContentFooter() {
 			<meta property="activeFilter" content="all" mv-storage="none" />
 			<ul className="filters">
 				<li>
-					<a href="#" className="[if(activeFilter = 'all', 'selected')]">
+					<a
+						href="#"
+						className={activeFilter === "all" ? "selected" : ""}
+						onClick={() => setActiveFilter("all")}
+					>
 						All
 					</a>
 				</li>
 				<li>
-					<a href="#" className="[if(activeFilter = 'active', 'selected')]">
+					<a
+						href="#"
+						className={activeFilter === "active" ? "selected" : ""}
+						onClick={() => setActiveFilter("active")}
+					>
 						Active
 					</a>
 				</li>
 				<li>
-					<a href="#" className="[if(activeFilter = 'completed', 'selected')]">
+					<a
+						href="#"
+						className={activeFilter === "completed" ? "selected" : ""}
+						onClick={() => setActiveFilter("completed")}
+					>
 						Completed
 					</a>
 				</li>

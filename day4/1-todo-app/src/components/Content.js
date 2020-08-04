@@ -13,6 +13,7 @@ function Content() {
 					className="toggle-all"
 					type="checkbox"
 					checked="[todoLeft = 0]"
+					onChange={() => {}}
 				/>
 				<label htmlFor="toggle-all" mv-action="set(done, !toggleAll)">
 					Mark all as complete
