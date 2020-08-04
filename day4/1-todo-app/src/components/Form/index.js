@@ -51,9 +51,9 @@ function Form() {
 							onBlur={() => setFieldTouched("text")}
 						/>
 
-						{errors.text && touched.text && (
+						{/* {errors.text && touched.text && (
 							<div style={{ color: "red" }}>{errors.text}</div>
-						)}
+						)} */}
 					</form>
 				)}
 			</Formik>

@@ -7,6 +7,9 @@ let filtered = "tet";
 function TodoList() {
 	const { todos, setTodos, activeFilter } = useContext(TodoContext);
 
+	const onDestroy = (id) =>
+		setTodos(todos.filter((todo) => todo.id !== id && todo));
+
 	const onChange = (id) => {
 		const updatedData = todos.map((todo) =>
 			todo.id === id ? { ...todo, completed: !todo.completed } : todo
@@ -38,7 +41,10 @@ function TodoList() {
 							onChange={() => onChange(todo.id)}
 						/>
 						<label property="text">{todo.text}</label>
-						<button className="destroy" mv-action="delete(todo)"></button>
+						<button
+							className="destroy"
+							onClick={() => onDestroy(todo.id)}
+						></button>
 					</div>
 				</li>
 			))}
