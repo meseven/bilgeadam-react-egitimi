@@ -5,7 +5,7 @@ import { GET_POKEMONS } from "./queries";
 
 import ListItem from "./ListItem";
 
-import { Container, Row } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import Loading from "./Loading";
 
 function PokemonList() {
@@ -14,16 +14,12 @@ function PokemonList() {
 	if (loading) return <Loading />;
 	if (error) return `Error! ${error.message}`;
 
-	console.log(data);
-
 	return (
-		<Container>
-			<Row>
-				{data.pokemons.map((pokemon, index) => (
-					<ListItem key={index} pokemon={pokemon} />
-				))}
-			</Row>
-		</Container>
+		<Row>
+			{data.pokemons.map((pokemon, index) => (
+				<ListItem key={index} pokemon={pokemon} />
+			))}
+		</Row>
 	);
 }
 

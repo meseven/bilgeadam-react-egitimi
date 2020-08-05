@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Card, Button, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function ListItem({ pokemon: { id, name, image } }) {
 	return (
@@ -20,7 +21,10 @@ function ListItem({ pokemon: { id, name, image } }) {
 						Some quick example text to build on the card title and make up the
 						bulk of the card's content.
 					</Card.Text> */}
-					<Button variant="primary">Details</Button>
+
+					<Link to={`/detail/${name.toLowerCase()}`}>
+						<Button variant="primary">Details</Button>
+					</Link>
 				</Card.Body>
 			</Card>
 		</Col>
