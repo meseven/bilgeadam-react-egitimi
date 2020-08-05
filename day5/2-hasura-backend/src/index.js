@@ -15,3 +15,7 @@ ReactDOM.render(
 );
 
 serviceWorker.unregister();
+
+
+// mehmetseven0@gmail.com
+// twitter: @mehmeteseven
