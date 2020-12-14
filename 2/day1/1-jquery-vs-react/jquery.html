@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jQuery</title>
+</head>
+<body>
+
+	<div id="text">0</div>
+	<button id="btn">Click</button>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(() => {
+			$('#btn').on('click', () => {
+				$('#text').html('1')
+			})
+		})
+	</script>
+</body>
+</html>
